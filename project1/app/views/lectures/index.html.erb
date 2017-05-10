@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<center><h1 style="color:PaleVioletRed;font-family:Times New Roman; font-size: 80px">Our Lectures</h1></center>
-
+<center><h1 style="color:PaleVioletRed;font-family:Times New Roman; font-size: 80px">Our Lectures</h1>
+  <%= link_to 'New Lecture', new_lecture_path, :style=>'color: DarkMagenta  ;', :class=>'btn btn-info'%>
+</center>
 <table>
   <thead>
     <tr>
@@ -41,5 +41,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Lecture', new_lecture_path, :style=>'color: DarkMagenta  ;'%>
