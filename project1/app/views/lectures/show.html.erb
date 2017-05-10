@@ -17,10 +17,13 @@
 
   <!-- <%= link_to 'New Comment', new_comment_path %> -->
 
+<% if current_user.try(:name) ==@lecture.course.user.try(:name) %>
 
 <%= link_to 'Edit', edit_lecture_path(@lecture) %> |
 <%= link_to 'Back', lectures_path %>
-
+<% else %>
+<%= link_to 'Back', lectures_path %>
+<% end %>
 <br>
 <%= link_to like_lecture_path(@lecture), method: :put do %>
   Like

@@ -16,10 +16,15 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr class="alert-danger">
+
         <td><%= course.title %></td>
       <td><%= course.user.name %> </td>
+        <% if current_user.try(:name) == course.user.try(:name) %>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%else %>
+        <td><%= link_to 'Show', course %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

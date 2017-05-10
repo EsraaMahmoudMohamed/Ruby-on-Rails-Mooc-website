@@ -22,8 +22,10 @@
       <td class="alert-danger"><%= lecture.course.user.name %></td>
       <td class="alert-info"><%= link_to 'Show', lecture %></td>
       <td class="alert-success"><%= link_to 'Download', lecture.attachment_url %></td>
+      <% if current_user.try(:name) ==lecture.course.user.try(:name) %>
       <td class="alert-info"><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
       <td class="alert-warning"><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       <% if current_user %>
       <% unless current_user.lectures.include?(lecture) %>
       <td><%= link_to 'Add_to_fav', add_to_fav_lecture_path(lecture), method: :put %></td>

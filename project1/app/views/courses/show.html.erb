@@ -10,8 +10,10 @@
   <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 40px">User:</strong>
   <%= @course.user.name %>
 </p>
-
+<% if current_user.try(:name) == @course.user.try(:name) %>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
-
+<% else %>
+<%= link_to 'Back', courses_path %>
+<% end %>
 </center>
