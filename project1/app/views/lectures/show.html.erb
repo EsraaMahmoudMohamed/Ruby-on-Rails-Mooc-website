@@ -42,5 +42,16 @@
   Unspam
   <%= @lecture.get_downvotes.size %>
 <% end %>
+<br>
+<% if current_user %>
+<% unless current_user.lectures.include?(@lecture) %>
+<td><%= link_to 'Add_to_fav', add_to_fav_lecture_path(@lecture), method: :put %></td>
+
+<% else %>
+<td><%= link_to 'Remove_from_fav', delete_from_fav_lecture_path(@lecture), method: :delete %></td>
+
+
+<% end %>
+<% end %>
 
 </center>

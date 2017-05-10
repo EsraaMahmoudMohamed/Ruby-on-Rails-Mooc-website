@@ -16,7 +16,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+          <% if user_signed_in? %>
+        <td><%= current_user.name %></td>
+        <% else %>
         <td><%= user.name %></td>
+        <%  end %>
         <td><%= user.dob %></td>
       <td>  <%=  image_tag user.picture.thumb.url  %> </td>
 
