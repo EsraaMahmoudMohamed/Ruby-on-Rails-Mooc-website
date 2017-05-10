@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :picture, ImageUploader
   has_many :courses
+  has_many :comments
   has_and_belongs_to_many :lectures
   validates_processing_of :picture
   validate :image_size_validation

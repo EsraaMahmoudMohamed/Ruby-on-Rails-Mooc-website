@@ -1,31 +1,22 @@
 class CommentsController < InheritedResources::Base
 
-  def new
-    @comment = Comment.new
-  end
+  before_action :find_lecture
+
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id =current_user.id
-
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+      @comment=@lecture.comments.create(params[:comment].permit(:content))
+      @comment.user_id=current_user.id
+      @comment.save
+      if  @comment.save
+          redirect_to @lecture
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+          render 'new'
       end
-    end
   end
 
   private
+  def find_lecture
+      @lecture=Lecture.find(params[:lecture_id])
+  end
 
-    def comment_params
-      params.require(:comment).permit(:content, :user_id, :lecture_id)
-    end
-
-    def find_lecture
-      @lecture =Lecture.find(params[:lecture_id])
-    end
 end

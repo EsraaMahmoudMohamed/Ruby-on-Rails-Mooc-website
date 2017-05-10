@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :comments
+
   resources :lectures  do
+    resources :comments
     member do
       put :add_to_fav
       delete :delete_from_fav

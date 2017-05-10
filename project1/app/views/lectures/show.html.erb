@@ -15,7 +15,7 @@
   <%= @lecture.course.title %>
 </p>
 
-  <!-- <%= link_to 'New Comment', new_comment_path %> -->
+
 
 <% if current_user.try(:name) ==@lecture.course.user.try(:name) %>
 
@@ -25,6 +25,7 @@
 <%= link_to 'Back', lectures_path %>
 <% end %>
 <br>
+
 <%= link_to like_lecture_path(@lecture), method: :put do %>
   Like
   <%= @lecture.get_upvotes.size %>
@@ -56,5 +57,7 @@
 
 <% end %>
 <% end %>
+<br>
+<%= render'comments/comment' %>
 
 </center>

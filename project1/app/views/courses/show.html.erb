@@ -16,4 +16,11 @@
 <% else %>
 <%= link_to 'Back', courses_path %>
 <% end %>
+<br>
+ <h2>Course Lectures:</h2>
+<% @lectures.each do |lecture| %>
+
+     <br>
+  <%= link_to lecture.content, lecture ,{ :class=>"panel panel-denger" }%>
+  <% end %>
 </center>
