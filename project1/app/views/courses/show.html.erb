@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<center>
+
+<p>
+  <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 40px">Title:</strong>
+  <%= @course.title %>
+</p>
+
+<p>
+  <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 40px">User:</strong>
+  <%= @course.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
+
+</center>

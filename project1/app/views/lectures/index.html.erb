@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1 style="color:PaleVioletRed;font-family:Times New Roman; font-size: 80px">Our Lectures</h1></center>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Attachment</th>
+      <th>Course</th>
+      <th>Course Instructor</th>
+      <th colspan="5"> Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lectures.each do |lecture| %>
+    <tr class="alert-primary">
+      <td class="alert-info"><%= lecture.content %></td>
+      <td class="alert-warning"><%= image_tag lecture.attachment_url %></td>
+      <td class="alert-info"><%= lecture.course.title %></td>
+      <td class="alert-danger"><%= lecture.course.user.name %></td>
+      <td class="alert-info"><%= link_to 'Show', lecture %></td>
+      <td class="alert-success"><%= link_to 'Download', lecture.attachment_url %></td>
+      <td class="alert-info"><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
+      <td class="alert-warning"><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if current_user %>
+      <% unless current_user.lectures.include?(lecture) %>
+      <td><%= link_to 'Add_to_fav', add_to_fav_lecture_path(lecture), method: :put %></td>
+
+    <% else %>
+    <td><%= link_to 'Remove_from_fav', delete_from_fav_lecture_path(lecture), method: :delete %></td>
+
+
+      <% end %>
+      <% end %>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lecture', new_lecture_path, :style=>'color: DarkMagenta  ;'%>

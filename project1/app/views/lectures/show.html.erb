@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<center>
+<p>
+  <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 30px">Content:</strong>
+  <%= @lecture.content %>
+</p>
+
+<p>
+  <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 30px">Attachment:</strong>
+  <%= @lecture.attachment %>
+</p>
+
+<p>
+  <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 30px">Course:</strong>
+  <%= @lecture.course.title %>
+</p>
+
+  <!-- <%= link_to 'New Comment', new_comment_path %> -->
+
+
+<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
+<%= link_to 'Back', lectures_path %>
+
+<br>
+<%= link_to like_lecture_path(@lecture), method: :put do %>
+  Like
+  <%= @lecture.get_upvotes.size %>
+<% end %> |
+
+<%= link_to dislike_lecture_path(@lecture), method: :put do %>
+  Unlike
+  <%= @lecture.get_downvotes.size %>
+<% end %>
+
+<br>
+<%= link_to spam_lecture_path(@lecture), method: :put do %>
+  Spam
+  <%= @lecture.get_upvotes.size %>
+<% end %> |
+
+<%= link_to unspam_lecture_path(@lecture), method: :put do %>
+  Unspam
+  <%= @lecture.get_downvotes.size %>
+<% end %>
+
+</center>

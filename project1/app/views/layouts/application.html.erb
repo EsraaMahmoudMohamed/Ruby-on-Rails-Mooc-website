@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="background-color:MistyRose ;">
+
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+   </button>
+              <a class="navbar-brand" href="#">MOOC</a>
+
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li class="active"><%= link_to 'Courses',courses_path  %><span class="sr-only">(current)</span></a></li>
+                  <li class="active">  <%= link_to 'Users',users_path  %></li>
+                  <li class="active">  <%= link_to 'Register Now', new_user_path %> </li>
+                  
+                  <% if user_signed_in? %>
+                <li class="active">   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                 <h3> Welcome <%= current_user.try(:email) %></h3>
+                 <% else %>
+                  <li class="active">   <%= link_to "Login", new_user_session_path  %></li>
+
+              <% end%>
+
+
+
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+  </nav>
+
+
+
+
+
+
+<div class="jumbotron ">
+       <div class="container">
+           <h1 class="title" style="font-family:Times New Roman"> MOOC website</h1>
+           <h4 style="font-family:Times New Roman">you can create,edit,delete,display courses and lecture under this courses </h4>
+           <br>
+           <br>
+
+       </div>
+   </div>
+
+
+
+<%= yield %>
+
+</body>
+</html>
