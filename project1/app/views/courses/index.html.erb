@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Register Now', new_user_path, :style=>'color: blue;' %>
+
 
 <center><h1 class="alert-warning"  style="color:PaleVioletRed;font-family:Times New Roman; font-size: 80px">Our Courses</h1>
 </center>
@@ -22,6 +22,7 @@
         <% if current_user.try(:name) == course.user.try(:name) %>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= link_to 'Edit', edit_course_path(course) %></td>
         <%else %>
         <td><%= link_to 'Show', course %></td>
         <% end %>

@@ -17,7 +17,7 @@
     <% @users.each do |user| %>
       <tr>
           <% if user_signed_in? %>
-        <td><%= current_user.name %></td>
+        <td><%= user.name %></td>
         <% else %>
         <td><%= user.name %></td>
         <%  end %>
