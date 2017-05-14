@@ -1,6 +1,7 @@
 class LecturesController < ApplicationController
 
   before_action :set_lecture, only: [:show, :edit, :update, :destroy, :add_to_fav, :delete_from_fav]
+  before_action :authenticate_user!
 
   # GET /lectures
   # GET /lectures.json
@@ -91,7 +92,7 @@ end
 
 def spam
 @lecture = Lecture.find(params[:id])
-@lecture.upvote_by current_user
+@lecture.vote_by_by current_user
   redirect_to @lecture
 end
 

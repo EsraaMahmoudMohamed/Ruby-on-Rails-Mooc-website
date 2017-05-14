@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :picture, ImageUploader
-  has_many :courses
-  has_many :comments
+  has_many :courses, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
   has_and_belongs_to_many :lectures
   validates_processing_of :picture
   validate :image_size_validation

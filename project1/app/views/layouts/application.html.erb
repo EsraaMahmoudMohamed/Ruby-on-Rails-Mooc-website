@@ -28,7 +28,7 @@
                   <li class="active"><%= link_to 'Courses',courses_path  %><span class="sr-only">(current)</span></a></li>
                   <li class="active">  <%= link_to 'Users',users_path  %></li>
                     <li class="active">  <%= link_to 'Lectures',lectures_path %> </li>
-                  <li class="active">  <%= link_to 'Register Now', new_user_path %> </li>
+                  <!-- <li class="active">  <%= link_to 'Register Now', new_user_path %> </li> -->
 
 
 
@@ -37,6 +37,7 @@
                  <h3 style="color:PaleVioletRed;font-family:Times New Roman; font-size: 30px"> Welcome <%= current_user.try(:name) %></h3>
                  <% else %>
                   <li class="active">   <%= link_to "Login", new_user_session_path  %></li>
+                  <li class="active">    <%= link_to "Register Now", new_user_registration_path  %></li>
 
               <% end%>
 

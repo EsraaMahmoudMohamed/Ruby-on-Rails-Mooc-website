@@ -1,6 +1,6 @@
 class Lecture < ActiveRecord::Base
   belongs_to :course
-  has_many   :comments
+  has_many   :comments, :dependent => :delete_all
   mount_uploader :attachment, AttachmentUploader
   validates :content, presence: true
   has_and_belongs_to_many :users

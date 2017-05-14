@@ -2,7 +2,7 @@
 <center>
 <p>
   <strong style="color:PaleVioletRed;font-family:Times New Roman; font-size: 30px">Content:</strong>
-  <%= @lecture.content %>
+  <%= raw@lecture.content %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 <br>
 
 <%= link_to like_lecture_path(@lecture), method: :put do %>
-  Like 
+  Like
   <%= @lecture.get_upvotes.size %>
 <% end %> |
 

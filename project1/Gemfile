@@ -52,5 +52,6 @@ end
  gem 'activeadmin', '~> 1.0.0.pre2'
  gem 'devise'
 
- gem 'ckeditor_rails'
+ # gem 'ckeditor_rails'
  gem 'acts_as_votable', '~> 0.10.0'
+ gem 'ckeditor'

@@ -1,6 +1,7 @@
 class CommentsController < InheritedResources::Base
 
   before_action :find_lecture
+  before_action :authenticate_user!
 
 
   def create

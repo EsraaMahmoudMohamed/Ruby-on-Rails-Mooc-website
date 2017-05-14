@@ -16,7 +16,7 @@
   <tbody>
     <% @lectures.each do |lecture| %>
     <tr class="alert-primary">
-      <td class="alert-info"><%= lecture.content %></td>
+      <td class="alert-info"><%= raw lecture.content %></td>
       <td class="alert-warning"><%= image_tag lecture.attachment_url %></td>
       <td class="alert-info"><%= lecture.course.title %></td>
       <td class="alert-danger"><%= lecture.course.user.name %></td>
