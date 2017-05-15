@@ -90,15 +90,17 @@ def downvote
 end
 
 
+
+
 def spam
 @lecture = Lecture.find(params[:id])
-@lecture.vote_by_by current_user
+@lecture.upvote_by current_user , vote_scope: 'like'
   redirect_to @lecture
 end
 
 def unspam
 @lecture = Lecture.find(params[:id])
-  @lecture.downvote_by current_user
+  @lecture.downvote_by current_user , vote_scope: 'like'
   redirect_to @lecture
 end
 

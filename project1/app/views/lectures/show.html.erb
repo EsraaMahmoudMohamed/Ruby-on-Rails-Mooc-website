@@ -39,12 +39,14 @@
 <br>
 <%= link_to spam_lecture_path(@lecture), method: :put do %>
   Spam
-  <%= @lecture.get_upvotes.size %>
+  <!-- <%= @lecture.get_upvotes.size %> -->
+  <%= @lecture.get_upvotes(:vote_scope => 'like').size %>
 <% end %> |
 
 <%= link_to unspam_lecture_path(@lecture), method: :put do %>
   Unspam
-  <%= @lecture.get_downvotes.size %>
+  <!-- <%= @lecture.get_downvotes.size %> -->
+  <%= @lecture.get_downvotes(:vote_scope => 'like').size %>
 <% end %>
 <br>
 <% if current_user %>
