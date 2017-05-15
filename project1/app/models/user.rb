@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   mount_uploader :picture, ImageUploader
   has_many :courses, :dependent => :delete_all
   has_many :comments, :dependent => :delete_all
-  has_and_belongs_to_many :lectures
+  has_and_belongs_to_many :lectures, :dependent => :destroy
   validates_processing_of :picture
   validate :image_size_validation
   # validates :name, length: { maximum: 30 }, presence: true

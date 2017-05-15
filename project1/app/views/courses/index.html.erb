@@ -17,8 +17,8 @@
     <% @courses.each do |course| %>
       <tr class="alert-danger">
 
-        <td><%= course.title %></td>
-      <td><%= course.user.name %> </td>
+        <td><%= course.try(:title) %></td>
+      <td><%= course.user.try(:name) %> </td>
         <% if current_user.try(:name) == course.user.try(:name) %>
         <td><%= link_to 'Show', course %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

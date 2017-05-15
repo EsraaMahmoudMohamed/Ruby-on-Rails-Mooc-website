@@ -8,7 +8,7 @@
       <th>Content</th>
       <th>Attachment</th>
       <th>Course</th>
-      <th>Course Instructor</th>
+
       <th colspan="5"> Actions</th>
     </tr>
   </thead>
@@ -18,8 +18,7 @@
     <tr class="alert-primary">
       <td class="alert-info"><%= raw lecture.content %></td>
       <td class="alert-warning"><%= image_tag lecture.attachment_url %></td>
-      <td class="alert-info"><%= lecture.course.title %></td>
-      <td class="alert-danger"><%= lecture.course.user.name %></td>
+      <td class="alert-info"><%= lecture.course.try(:title) %></td>
       <td class="alert-info"><%= link_to 'Show', lecture %></td>
       <td class="alert-success"><%= link_to 'Download', lecture.attachment_url %></td>
       <% if current_user.try(:name) ==lecture.course.user.try(:name) %>
