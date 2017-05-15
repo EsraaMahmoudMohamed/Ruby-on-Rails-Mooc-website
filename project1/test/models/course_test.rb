@@ -8,7 +8,7 @@ class CourseTest < ActiveSupport::TestCase
   test "should not save new course without title" do
     course = Course.new
     assert_not course.save
-    course.title = 'Test'
+    course.title = 'Test cousre'
     assert_not course.save
   end
 
